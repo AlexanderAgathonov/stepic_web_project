@@ -51,9 +51,9 @@ def qa_popular_all(request):
 def question(request, id):
    question = get_object_or_404(Question, pk=id)
    answers = Answer.objects.filter(question = question)
-   form = AnswerForm(initial={'question': str(id)})
+   #form = AnswerForm(initial={'question': str(id)})
  
-   return render(request, 'question.html', { 'user':request.user, 'question':question, 'answers':answers, 'form': form, })
+   return render(request, 'question.html', { 'user':request.user, 'question':question, 'answers':answers, })#'form': form, })
 
 def ask_add(request):
    if request.method == 'POST': 
