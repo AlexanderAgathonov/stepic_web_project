@@ -80,6 +80,16 @@ USE_L10N = True
 
 USE_TZ = True
 
+import os.path
+BASE_DIR = os.path.abspath(__file__)
+BASE_DIR = os.path.dirname(BASE_DIR)
+BASE_DIR = os.path.dirname(BASE_DIR)
+BASE_DIR = os.path.dirname(BASE_DIR)
+TEMPLATE_DIRS = (
+   BASE_DIR + '/templates',
+)
+#print TEMPLATE_DIRS
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
