@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage
 from qa.models import Question, Answer
 from django.http import Http404, HttpResponseRedirect
-#from qa.forms import AskForm, AnswerForm, SignupForm, LoginForm
+from qa.forms import AskForm, AnswerForm#, SignupForm, LoginForm
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout
 #import logging
@@ -51,9 +51,9 @@ def qa_popular_all(request):
 def question(request, id):
    question = get_object_or_404(Question, pk=id)
    answers = Answer.objects.filter(question = question)
-   #form = AnswerForm(initial={'question': str(id)})
+   form = AnswerForm(initial={'question': str(id)})
  
-   return render(request, 'question.html', { 'user':request.user, 'question':question, 'answers':answers, })#'form': form, })
+   return render(request, 'question.html', { 'user':request.user, 'question':question, 'answers':answers, 'form': form, })
 
 def ask_add(request):
    if request.method == 'POST': 

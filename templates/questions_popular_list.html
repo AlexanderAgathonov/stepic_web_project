@@ -6,6 +6,12 @@
     </head>
 
     <body>
+      {% if user.is_authenticated %}
+         {{ user.get_username }} is logging in  <br>
+      {% else %}
+         User is logout <br>
+      {% endif %}
+
       Pages: &nbsp;
       {% for p in paginator.page_range %}
         {% if p == page.number %}

@@ -8,8 +8,29 @@
     <body>
       Question: <br>
 
+      {% if user.is_authenticated %}
+         {{ user.get_username }} is logging in  <br>
+      {% else %}
+         User is anonymous <br>
+      {% endif %}
+
       <p> Title - {{ question.title }} </p>
       <p> Text - {{ question.text }} </p>
+
+      <form method="post" action="/answer/">
+        {% csrf_token %}
+        <fieldset> 
+            {% for field in form %} 
+             <div>
+               <label> {{ field.label }} </label>
+               <div> {{ field }} </div>
+             </div>
+            {% endfor %}
+        </fieldset>
+        <div>
+           <button type="submit"> Save </button>
+        </div> 
+      </form>
 
       Answers:
       {% for answer in answers %}
