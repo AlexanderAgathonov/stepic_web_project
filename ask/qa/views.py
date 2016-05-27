@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage
 from qa.models import Question, Answer
 from django.http import Http404, HttpResponseRedirect
-from qa.forms import AskForm, AnswerForm#, SignupForm, LoginForm
+from qa.forms import AskForm, AnswerForm, SignupForm, LoginForm
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout
 #import logging
